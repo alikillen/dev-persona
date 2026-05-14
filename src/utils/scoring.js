@@ -1,6 +1,10 @@
 //business logic - scoring system
 
+// Determines final developer archetype
+// based on accumulated personality traits
+
 export const getPersona = (scores) => {
+  // Default to 0 if a trait was never assigned during the quiz
   const chaos = scores.chaos || 0;
   const bravery = scores.bravery || 0;
   const patience = scores.patience || 0;
@@ -8,7 +12,7 @@ export const getPersona = (scores) => {
   const practicality = scores.practicality || 0;
 
   // CHAOS GREMLIN
-  if (chaos >= 8) {
+  if (chaos >= 12) {
     return {
       title: "The Chaos Gremlin",
       emoji: "🔥",
@@ -18,7 +22,7 @@ export const getPersona = (scores) => {
   }
 
   // STARTUP HUSTLER
-  if (ambition >= 7 && bravery >= 4) {
+  if (chaos >= 9 && ambition >= 7) {
     return {
       title: "The Startup Hustler",
       emoji: "🚀",
@@ -28,7 +32,7 @@ export const getPersona = (scores) => {
   }
 
   // LEGACY WHISPERER
-  if (patience >= 7 && practicality >= 5) {
+  if (patience >= 10) {
     return {
       title: "The Legacy Whisperer",
       emoji: "🧙",
@@ -38,7 +42,7 @@ export const getPersona = (scores) => {
   }
 
   // ENTERPRISE KNIGHT
-  if (practicality >= 8) {
+  if (practicality >= 9 && patience >= 7) {
     return {
       title: "The Enterprise Knight",
       emoji: "🛡️",
@@ -48,7 +52,7 @@ export const getPersona = (scores) => {
   }
 
   // BUG HUNTER
-  if (bravery >= 7) {
+  if (bravery >= 9) {
     return {
       title: "The Bug Hunter",
       emoji: "🐛",
@@ -56,6 +60,31 @@ export const getPersona = (scores) => {
         "Fearlessly dives into stack traces that would make others quit tech entirely.",
     };
   }
+
+  // HIGH AMBITION
+  if (ambition >= 9) {
+    return {
+      title: "Tech Influencer",
+      emoji: "📈",
+      description:
+        "Already planning a LinkedIn post about scaling your side project to 10 million users."
+    };
+  }
+
+  // BALANCED / SAFE
+  if (
+    practicality >= 6 &&
+    patience >= 6 &&
+    chaos <= 6
+  ) {
+    return {
+      title: "Balanced Engineer",
+      emoji: "⚖️",
+      description:
+        "Avoids unnecessary chaos and occasionally remembers to write tests."
+    };
+  }
+
 
   // OVERTHINKER
   if (patience >= 6 && ambition <= 3) {
@@ -75,3 +104,5 @@ export const getPersona = (scores) => {
       "Builds first, refactors later, somehow still gets things working.",
   };
 };
+
+

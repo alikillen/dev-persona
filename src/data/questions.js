@@ -150,5 +150,51 @@ export const questions = [
         traits: { chaos: 5 }
       }
     ]
+  },
+
+  {
+    id: 9,
+    question: "How do you choose a JavaScript framework?",
+    answers: [
+      {
+        text: "Carefully evaluate long-term maintainability",
+        traits: { practicality: 3, patience: 2 }
+      },
+      {
+        text: "Whatever the hype on Twitter says this week",
+        traits: { chaos: 3, ambition: 1 }
+      },
+      {
+        text: "Build my own framework instead",
+        traits: { bravery: 2, chaos: 2, ambition: 2 }
+      },
+      {
+        text: "Still emotionally recovering from AngularJS",
+        traits: { patience: 3 }
+      }
+    ]
+  },
+
+  {
+    id: 10,
+    question: "What sounds like your ideal tech job?",
+    answers: [
+      {
+        text: "Fast-moving startup building chaotic MVPs",
+        traits: { ambition: 3, chaos: 2, bravery: 1 }
+      },
+      {
+        text: "Stable enterprise team with strong processes",
+        traits: { practicality: 3, patience: 2 }
+      },
+      {
+        text: "Remote indie developer working from a cabin",
+        traits: { chaos: 2, patience: 1 }
+      },
+      {
+        text: "Somewhere with minimal meetings and maximum snacks",
+        traits: { practicality: 1, chaos: 1 }
+      }
+    ]
   }
 ]

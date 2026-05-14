@@ -45,7 +45,7 @@ Notes:
 - app tracks current qwuestion index, accumulates scores for traits
 - at the end, a rule-based classifier determines the final persona and renders results
 
-- github, deployed on vercel
+- github, deployed on vercel, pushes to main auto deploy
 
 ### Future improvements include:
 
@@ -54,6 +54,18 @@ Notes:
 Right now scoring is client-side, but I’d move it to a backend service so results could be persisted and analysed.
 
 ### 2. Add a backend
+
+Probably node and express, to keep language consistent, allows fast iteration.
+
+In the future the backend should return the persona result. More secure, centralises business rules.
+
+Could do - aggregating anonymous response data to identify the most common engineering archetypes or answer patterns.
+
+DB:
+Add SQLite at first - store and randomise questions
+SQLite - no config, easy local dev, fast setup. Not ideal for larger projects
+
+Advance to PostgreSQL - better scalability and reliable querying
 
 ### 3. Add persistence/analytics
 

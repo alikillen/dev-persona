@@ -5,7 +5,10 @@ import { questions } from './data/questions';
 import Results from './components/Results';
 
 function App() {
+  //tracks which question the user is currently answering
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  //stores accumulated personality trait scores across quiz progress
   const [scores, setScores] = useState({});
 
   // CHECK IF QUIZ IS FINISHED
@@ -16,15 +19,20 @@ function App() {
   // ONLY GET QUESTION IF QUIZ NOT FINISHED
   const question = questions[currentQuestion];
 
+  //this is our onclick handle answer function - updates scores with each answer
+  // Updates cumulative personality trait scores when a user selects an answer
   const handleAnswer = (traits) => {
+    // Create a shallow copy to avoid mutating React state directly
     const updatedScores = { ...scores };
 
+    // Increment each personality trait based on the weighting assigned to the selected answer
     for (const trait in traits) {
       updatedScores[trait] = (updatedScores[trait] || 0) + traits[trait];
     }
 
     setScores(updatedScores);
 
+    //go to next q
     setCurrentQuestion(currentQuestion + 1);
   };
 
